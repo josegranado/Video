@@ -11,7 +11,9 @@ function Category (props)
             <div className="Category-title">{ props.title }</div>
             
             <div className="Category-content">
+
                 <Playlist
+                    handleClick={props.handleOpenModal}
                     playlist={props.playlist}
                     key={props.id}
                 />

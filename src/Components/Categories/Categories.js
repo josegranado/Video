@@ -6,7 +6,7 @@ export default function Categories ( props )
     return (
         <div className="Categories">
             {
-                props.categories.map( item => <Category key={ item.id } {...item} /> )
+                props.categories.map( item => <Category handleOpenModal={props.handleOpenModal} key={ item.id } {...item} /> )
             }
         </div>
     )

@@ -29,7 +29,7 @@ function Playlist (props)
             </div>
             <div className="Playlist">
             {
-                props.playlist.map( item => <Media {...item} key={item.id}/> )
+                props.playlist.map( item => <Media handleClick={props.handleClick} {...item} key={item.id}/> )
             }
             </div>
         </div>

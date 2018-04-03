@@ -19,18 +19,18 @@ class Media extends PureComponent
         console.log(ev)
     }
     */
-   handleClick = ev => {
+   /*handleClick = ev => {
        this.setState({
            author: 'Ricardo Celis',
 
        })
    };
-   
+   */
     render ()
     {   
         
         return (
-            <div className="Media card" onClick={this.handleClick}>
+            <div className="Media card" onClick={this.props.handleClick}>
                 <div>
                     <img
                         className="card-img-top"
