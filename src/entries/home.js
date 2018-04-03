@@ -10,9 +10,8 @@ Clase 1
 const $app = document.getElementById('app');
 const $holaMundo = <h1>Hola Estudiante!</h1>;
 */
-const $app = document.getElementById('app');
-
-render ( <Home data={data} />,$app);
+const $home = document.getElementById('home-container');
+render ( <Home data={data} />,$home);
 //ReactDOM.render(<Category data={data} />, $app);
 /*console.log(data.categories)
 data.categories[0].playlist.map( item => console.log(item.title))*/
