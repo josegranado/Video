@@ -1,0 +1,39 @@
+.Media
+{
+    cursor: pointer;
+    margin-right: 15px;
+    display: inline-block;
+    width: 19%;
+    vertical-align: top;
+    color: '#44546b';
+    margin: 5px;
+    -webkit-box-shadow: -3px 1px 31px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: -3px 1px 31px -10px rgba(0,0,0,0.75);
+    box-shadow: -3px 1px 31px -10px rgba(0,0,0,0.75);
+    font-size: 16px;
+}
+.card-title
+{
+    font-weight: bold;
+    font-size: 16px;
+}
+.card-subtitle 
+{
+    font-size: 18px;
+    font-weight: italic;
+}
+.widthAll
+{
+    width: 100%;
+}
+.widthHalf{
+    width: 49%;
+}
+.firstColor 
+{
+    background: #208387;
+}
+.secondColor
+{
+    background: #9ce2e5;
+}

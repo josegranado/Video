@@ -1,0 +1,98 @@
+git init : nos crea un repositorio de manera local y lo hará en la carpeta donde estamos posicionados o se le puede pasar [nombre_de_la_carpeta] y creará la carpeta con ese nombre.
+
+ls -a : nos muestra los archivos o carpetas ocultas en la terminal
+
+Untracked files: Son archivos que están en nuestro Working Directory, lo que aparezca en rojo es lo que se ha modificado y hay que pasarlo al Staging.
+
+git add [archivo]: Nos agrega al archivo al staging area(el limbo) ** -A** nos agrega todos los archivos
+git rm --cached: Nos devolvemos un paso
+git rm -f [file]: Elimina el archivo por completo.
+git add -n [file]: Que no haga nada
+
+Git commit -m [“mensaje”]: Es bueno ser descriptivos con el mensaje para saber lo que se hizo en ese commit y para informar al resto de personas.
+
+–amend: concatena nuevos cambios con cambios previos.
+
+git log: nos muestra la historia de todos los commits que hemos realizados.
+git tag: nos permite agregar etiquetas a nuestros cambios.
+-a para la anotación
+sdm "Mensaje" para el mensaje
+
+-l nos muestra la lista de etiquetas
+-f [id commit] para renombrar
+-d [id commit]  para borrar
+
+git log --oneline =  log resumido
+
+git config --global alias.superlog "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+
+git diff tag tag = Comparar tags.
+git diff tag = Se compara con la version actual y el tag.
+
+git reset --soft [SHA1] : 
+git reset --soft [SHA1]: Nos permite quitar los cambios de un commit específico. Deja los archivos en el staging area, listos para hacer un commit.
+git reset --mixed[SHA1] : 
+nos elimina los cambios, también del staging area.
+ git reset --hard [SHA1]: Nos elimina los cambios incluso del working directory, es el más peligroso de todos porque podemos perder parte de nuestro trabajo.
+
+Si tenemos el hash de los más recientes commits, puedes salvarte de los regaños de tu jefe todavía, importante guardar los commits en un archivo. Solo por si acaso.
+
+CREAR UNA RAMA
+git branch [nombre] : Crear rama
+git branch -d [nombre] : Borrar rama
+git branch -D [nombre] : Borrar rama forzadamente
+git branch -l : Visualizar todas las ramas.
+git branch -m nombreAnterior nombreacambiar : Renombar rama 
+
+Moviendonos entre ramas y versiones
+git checkout [nombre de rama o sha1] : Nos permite mover entre ramas y entre commits, no vamos a borrar nada. Acá es donde podemos movernos en el tiempo.
+
+git checkout -b [nombre_rama]: Nos permite crear una nueva rama sin necesidad de usar branch
+
+MEZCLANDO RAMAS Y RESOLVIENDO CONFLICTOS.
+Posicionarme en la rama que quiero hacer los cambios.
+
+git merge [rama]: Nos permite mezclar los cambios realizados en dicha rama con la rama en la que estamos.
+
+fast-forward: los mezcla automáticamente
+recursive/auto-merging: ambas ramas salieron al mismo tiempo y hay algo nuevo en la rama que la otra no recuerda, por eso hace la mezcla recursiva.
+manual merge: nos va a tocar decirle a git específicamente los cambios que queremos mezclar
+
+Reescribir la historia de tu proyecto
+git rebase: hace prácticamente lo mismo que merge, cambiamos la historia de nuestro proyecto sin crear bifurcaciones del proyecto. Es mejor usar merge
+Usar solo git rebase de manera local.
+
+Guardando cambios temporalmente
+
+git stash: es otro de los limbos, como el staging area. Para agregar los cambios estos deben estar en el staging area.
+git stash list: nos muestra la lista de stash que tengamos.
+git stash drop stash@{numero}: nos permite borrar un stash.
+git stash apply: aplicamos el último cambio
+
+git cherry-pick [SHA1] nos permite cambiar un commit a otra rama para salvarnos la vida.
+
+Clonar repositorio
+git clone git@github.com:josegranado/invie-github.git
+
+
+    git remote add [origin] [SSH/HTTPS] Conecta un repositorio con nuestro equipo local.
+    git remote -v Lista las conexiones existentes.
+    git remote remove [origin] Elimina una conexión con algún repositorio.
+2 formas de traer tus cambios de github a tu repo local:
+
+    git fetch: descarga los cambios a una rama generalmente llamada origin/master, seguido de esto tienes que fuisonar esa rama
+
+$ git fetch origin master 
+# origin= remoto | master= rama del remoto
+# ahora tienes una rama llamada origin/master
+# que pueedes ver con 'git branch -a'
+$ git merge origin/master
+# si obtienes un error usar la siguiente linea
+# git merge origin/master --allow-unrelated-histories
+
+    git pull: es como ejecutar los 2 pasos anteriores(fetch y merge) en uno solo
+
+$ git pull origin master
+Un Pull Request es una solicitud para que el dueño del repositorio realice los cambios que estas proponiendo. Estos nunca se hacen a la rama master, para evitar inconvenientes.
+
+Es la base de la colaboración Open Source en github 😛    

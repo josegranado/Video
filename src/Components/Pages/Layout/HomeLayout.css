@@ -1,0 +1,11 @@
+body
+{
+    margin: 0;
+}
+.HomeLayout
+{
+   display: flex;
+   margin: 0 auto;
+   min-height: 100vh; 
+   background: #0f073d;
+}
